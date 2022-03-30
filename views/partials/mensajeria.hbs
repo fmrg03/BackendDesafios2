@@ -1,0 +1,45 @@
+{{#if usuario}}
+<div class="container-fluid">
+  <div class="marginTop contenedorNombre col-xxl-6 col-sm-8">
+    <h1>Bienvenido {{usuario}}</h1>
+  </div>
+</div>
+{{/if}}
+<div class="container-fluid">
+  <div class="marginTop contenedor col-xxl-6 col-sm-8">
+    <h1>Centro de Mensajes</h1>
+    <div>
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input class="input60" id="nombre" type="text" placeholder="Nombre" required>
+      </div>
+      <div>
+        <label for="apellido">Apellido:</label>
+        <input class="input60" id="apellido" type="text" placeholder="Apellido" required>
+      </div>
+      <div>
+        <label for="edad">Edad:</label>
+        <input class="input60" id="edad" type="number" placeholder="Edad" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input class="input60" id="email" type="email" placeholder="example@email.com" required>
+      </div>
+      <div>
+        <label for="alias">Alias:</label>
+        <input class="input60" id="alias" type="text" placeholder="Alias" required>
+      </div>
+      <div>
+        <label for="avatar">Avatar:</label>
+        <input class="input60" id="avatar" type="text" placeholder="Avatar" required>
+      </div>
+    </div>
+    <div>
+      <p id="parrafoChat"></p>
+    </div>
+    <div>
+      <input class="input60" id="mensaje" type="text" placeholder="Mensaje..." required>
+    </div>
+    <button id="btnChat" class="btn btn-dark" type="submit">Enviar</button>
+  </div>
+</div>

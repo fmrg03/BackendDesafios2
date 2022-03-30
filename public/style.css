@@ -1,0 +1,48 @@
+.emailText {
+  font-weight: bold;
+  color: blue;
+}
+button a{
+  text-decoration: none;
+  color: black;
+}
+.dateText {
+  color: brown;
+}
+.messageText {
+  font-style: italic;
+  color: green;
+}
+.marginTop {
+  margin: auto;
+  margin-top: 40px;
+}
+.contenedor {
+  border-radius: 20px;
+  background-color: lightgray;
+  padding: 30px !important;
+}
+.contenedorNombre {
+  border-radius: 20px;
+  background-color: lightblue;
+  padding: 30px !important;
+}
+#parrafoChat {
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+#btnChat{
+  margin-top: 5px;
+}
+.input60{
+  width: 60%;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+label{
+  font-weight: bold;
+  font-size: 20px;
+}
