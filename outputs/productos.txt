@@ -1,0 +1,42 @@
+[
+  {
+    "producto": "Calculadora",
+    "precio": "300",
+    "imagen": "123"
+  },
+  {
+    "producto": "ddddddddddd",
+    "precio": "31",
+    "imagen": "321"
+  },
+  {
+    "producto": "ddddddddddd",
+    "precio": "31",
+    "imagen": "321"
+  },
+  {
+    "producto": "ddddddddddd",
+    "precio": "31",
+    "imagen": "321"
+  },
+  {
+    "producto": "ddddddddddd",
+    "precio": "31",
+    "imagen": "321"
+  },
+  {
+    "producto": "ddddddddddd",
+    "precio": "31",
+    "imagen": "321"
+  },
+  {
+    "producto": "321",
+    "precio": "321",
+    "imagen": "321"
+  },
+  {
+    "producto": "ddddddddddd",
+    "precio": "321",
+    "imagen": "321"
+  }
+]

@@ -29,14 +29,16 @@
           </ul>
         </div>
         <div>
-          {{#if usuario}}
+          {{#if username}}
           {{#if logout}}
           <a href="/login"><button class="btn btn-light">Log in</button></a>
+          <a href="/registro"><button class="btn btn-light">Registrarse</button></a>
           {{else}}
           <a href="/logout"><button class="btn btn-light">Log out</button></a>
           {{/if}}
           {{else}}
           <a href="/login"><button class="btn btn-light">Log in</button></a>
+          <a href="/registro"><button class="btn btn-light">Registrarse</button></a>
           {{/if}}
         </div>
       </div>

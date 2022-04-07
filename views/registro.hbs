@@ -1,19 +1,19 @@
 <div class="container-fluid">
     <div class="marginTop contenedor col-xxl-6 col-sm-8">
-        <h1>Login</h1>
+        <h1>Registro</h1>
         <form class="needs-validation" method="post">
             <div>
-                <label for="login">Ingrese los datos:</label>
+                <label for="register">Ingrese los datos:</label>
             </div>
             <input class="input60" name="username" id="username" type="text" placeholder="Username" required>
             <input class="input60" name="password" id="password" type="text" placeholder="Password" required>
             <div>
-                <a href="/datos"><button id="btnRegLogin" class="btn btn-dark" type="submit">Login</button></a>
+                <a href="/login"><button id="btnRegLogin" class="btn btn-dark">Registrar</button></a>
             </div>
         </form>
         <div class="marginTop">
-            <h6>¿No posees una cuenta? Registrate presionando el siguiente botón:</h3>
-                <a href="/registro"><button id="btnIrARegistro" class="btn btn-dark">Registrarme</button></a>
+            <h6>¿Ya posees una cuenta? Ingresa presionando el siguiente botón:</h3>
+                <a href="/login"><button id="btnIrALogin" class="btn btn-dark">Ir a Login</button></a>
         </div>
     </div>
 </div>

@@ -29,6 +29,24 @@ class ContenedorMongoDb {
             throw new Error(`Error al guardar: ${error}`)
         }
     }
+
+    async find(obj) {
+        if (obj) {
+            try {
+                const find = await this.collection.findOne(obj)
+                return find
+            } catch (error) {
+                throw new Error(`Error al buscar: ${error}`)
+            }
+        } else {
+            try {
+                const find = await this.collection.find()
+                return find
+            } catch (error) {
+                throw new Error(`Error al buscar: ${error}`)
+            }
+        }
+    }
 }
 
 module.exports = ContenedorMongoDb

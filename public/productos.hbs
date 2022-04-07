@@ -1,0 +1,22 @@
+<div id="productos">
+    {{#if cantidad}}
+    <div class="table-responsive">
+        <table class="table table-dark text-center">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+            {{#each productos}}
+            <tr style="vertical-align: middle;" class="align-items-center">
+                <td>{{this.producto}}</td>
+                <td>{{this.precio}}</td>
+                <td><img src={{this.imagen}} width="50"></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{else}}
+    <h4>No hay productos</h4>
+    {{/if}}
+</div>

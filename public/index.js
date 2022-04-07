@@ -1,5 +1,8 @@
 const socket = io.connect()
 
+const producto = document.querySelector('#producto')
+const precio = document.querySelector('#precio')
+const imagen = document.querySelector('#image')
 const nombre = document.querySelector('#nombre')
 const apellido = document.querySelector('#apellido')
 const edad = document.querySelector('#edad')
@@ -7,7 +10,6 @@ const alias = document.querySelector('#alias')
 const email = document.querySelector('#email')
 const avatar = document.querySelector('#avatar')
 const mensaje = document.querySelector('#mensaje')
-const user = document.querySelector('#login')
 
 if (document.querySelector('#btnChat')) {
     document.querySelector('#btnChat').addEventListener('click', () => {
@@ -33,12 +35,25 @@ if (document.querySelector('#btnChat')) {
         document.querySelector('#parrafoChat').innerHTML = mensajesHTML
     })
 }
-if (document.querySelector('#btnLogin')) {
-    document.querySelector('#btnLogin').addEventListener('click', () => {
-        if (user.value) {
-            socket.emit('usuario', {
-                usuario: user.value
-            })
-        }
-    })
-}
+
+document.querySelector('#btnProductos').addEventListener('click', (e) => {
+    e.preventDefault()
+    if (producto.value && precio.value && imagen.value) {
+        socket.emit('producto', { producto: producto.value, precio: precio.value, imagen: imagen.value })
+    }
+})
+
+socket.on('productos', productos => {
+    fetch(`productos.hbs`)
+        .then(res => res.text())
+        .then(data => {
+            const template = Handlebars.compile(data)
+            const objetoProductos = {
+                productos: productos,
+                cantidad: productos.length
+            }
+            const html = template(objetoProductos)
+            document.querySelector('#productos').innerHTML = html
+        })
+        .catch(err => console.log(err))
+})

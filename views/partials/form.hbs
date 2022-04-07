@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="marginTop contenedor col-sm-8 col-xxl-5">
+        <h1>Ingrese Producto</h1>
+        <form class="row g-3 needs-validation" novalidate method="POST" action="/productos">
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Producto</label>
+                <input type="text" name="producto" class="form-control" id="producto" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Precio</label>
+                <input type="number" name="precio" class="form-control" id="precio" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefaultUsername" class="form-label">Imagen</label>
+                <div class="input-group">
+                    <input type="text" name="imagen" class="form-control" id="image"
+                        aria-describedby="inputGroupPrepend2" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <button id="btnProductos" class="btn btn-dark" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

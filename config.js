@@ -5,12 +5,15 @@ const config = {
     mongoDb: {
         client: 'mongodb',
         cnxStr: process.env.MONGODB_CONN,
-        db: 'mensajeria',
-
+        dbMensajeria: 'mensajeria',
+        dbProductos: 'productos',
+        dbUsuarios: 'usuarios'
     },
     firebase: {
         client: 'fibrebase',
-        collection: 'mensajeria'
+        collectionMensajeria: 'mensajeria',
+        collectionProductos: 'productos',
+        collectionUsuarios: 'usuarios'
     },
     fileSystem: {
         path: './outputs/'
