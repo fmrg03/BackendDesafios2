@@ -140,6 +140,14 @@ app.engine(
 app.set('view engine', 'hbs')
 app.set('views', 'views')
 
+const isAuth = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.redirect('/login')
+    }
+}
+
 ///// END POINTS
 // LOGIN
 app.get('/login', (req, res) => {
@@ -177,22 +185,13 @@ app.get('/fail-register', (req, res) => {
 })
 
 // GENERAL
-app.get('/datos', (req, res) => {
-    console.log(req.sessionID)
+app.get('/datos', isAuth, (req, res) => {
     const cantidad = productos.length
-    if (!req.session.usuario && usuario !== undefined) {
-        req.session.usuario = usuario.username
-    }
     res.render('main', { productos, cantidad, username: req.session.usuario })
 })
 
-app.get('/', (req, res) => {
-    if (req.session.usuario) {
-        res.redirect('/datos')
-    }
-    else {
-        res.redirect('/login')
-    }
+app.get('/', isAuth, (req, res) => {
+    res.redirect('/datos')
 })
 
 // SOCKET
