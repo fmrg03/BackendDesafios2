@@ -14,7 +14,9 @@ const cookieParser = require('cookie-parser')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('./models/usuario')
+const randoms = require('./routes/randoms')
 const bcrypt = require('bcrypt')
+const argv = require('./config/yargs')
 
 const messages = process.env.DB === 'mongodb' ? require('./daos/daosMensajes/DaosMensajesMongo') :
     process.env.DB === 'firebase' ? require('./daos/daosMensajes/DaosMensajesFirebase') :
@@ -148,6 +150,9 @@ const isAuth = (req, res, next) => {
     }
 }
 
+
+app.use('/api/randoms', randoms)
+
 ///// END POINTS
 // LOGIN
 app.get('/login', (req, res) => {
@@ -190,6 +195,18 @@ app.get('/datos', isAuth, (req, res) => {
     res.render('main', { productos, cantidad, username: req.session.usuario })
 })
 
+app.get('/info', (req, res) => {
+    const objetoInfo = {
+        argumentos: argv,
+        directorio: process.cwd(),
+        idProcess: process.pid,
+        versionNode: process.version,
+        SO: process.platform,
+        memory: process.memoryUsage.rss() / 1048576,
+    }
+    console.log(objetoInfo)
+    res.render('info', objetoInfo)
+})
 app.get('/', isAuth, (req, res) => {
     res.redirect('/datos')
 })
@@ -207,7 +224,7 @@ io.on('connection', (socket) => {
         io.sockets.emit('mensajes', mensajes)
         messages.guardar(mensaje)
     })
-
+    
     socket.on('producto', data => {
         productos.push(data)
         products.guardar(data)
@@ -215,7 +232,11 @@ io.on('connection', (socket) => {
     })
 })
 
-const PORT = 3000 || process.env.PORT
+app.use((req, res) => {
+    res.status(500).send({ error: -2, descripcion: `ruta '${req.url}', método '${req.method}' no implementada` })
+})
+
+const PORT = argv.p
 server.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto: ${PORT}`)
 })

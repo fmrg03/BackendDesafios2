@@ -8,6 +8,18 @@ button a {
   color: black;
 }
 
+.boldFont {
+  font-weight: bold;
+}
+
+h5 {
+  color: midnightblue;
+}
+
+.textCenter {
+  text-align: center;
+}
+
 .dateText {
   color: brown;
 }
